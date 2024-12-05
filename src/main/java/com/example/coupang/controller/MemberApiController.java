@@ -34,5 +34,8 @@ public class MemberApiController {
         }
     }
 
-
+    public ResponseEntity<String> logout(HttpSession session){
+        session.invalidate();   // 세션 무효화하자.
+        return  ResponseEntity.ok("로그아웃 하였습니다.");
+    }
 }

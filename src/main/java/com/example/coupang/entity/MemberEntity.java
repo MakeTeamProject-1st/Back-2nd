@@ -33,6 +33,11 @@ public class MemberEntity {
     @Column(nullable = false)
     private boolean gender;
 
+    //TODO 생성시간 기록 ( 해도 되고 안해도 되고 나중에 보고 )
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Timestamp createdAt;
+
     public static MemberEntity toMemberEntity(MemberDTO memberDTO){
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setEmail(memberDTO.getEmail());
@@ -43,9 +48,6 @@ public class MemberEntity {
         return memberEntity;
     }
 
-    //TODO 생성시간 기록 ( 해도 되고 안해도 되고 나중에 보고 )
-    @CreationTimestamp
-    @Column(updatable = false)
-    private Timestamp createdAt;
+
 
 }

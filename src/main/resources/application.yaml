@@ -14,8 +14,3 @@ spring:
   thymeleaf:
     cache: false
 
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.springframework.jdbc.datasource: DEBUG
