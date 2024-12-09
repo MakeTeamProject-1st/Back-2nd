@@ -48,3 +48,9 @@ public class MemberEntity {
         return memberEntity;
     }
 }
+
+/*
+ItemApiController: 물품 조회와 관련된 API를 담당하는 컨트롤러.
+UserApiController: 유저 정보와 관련된 API를 담당하는 컨트롤러.
+CartApiController: 장바구니 관련 API를 담당하는 컨트롤러.
+        SellerApiController: 판매 물품 관련 API를 담당하는 컨트롤러.*/
