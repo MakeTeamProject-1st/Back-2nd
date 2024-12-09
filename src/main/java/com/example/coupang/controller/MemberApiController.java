@@ -6,10 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor    // final field 의 생성자 자동생성
@@ -41,5 +38,17 @@ public class MemberApiController {
     public ResponseEntity<String> logout(HttpSession session) {
         session.invalidate();   // 세션 무효화하자.
         return ResponseEntity.ok("로그아웃 하였습니다.");
+    }
+
+    @DeleteMapping("/users")
+    public ResponseEntity<String> deleteUser(@RequestParam String email, @RequestParam String password) {
+        // 이메일과 비밀번호를 사용하여 회원 삭제 처리
+        boolean isDeleted = memberService.deleteMemberByEmailAndPassword(email, password);
+
+        if (isDeleted) {
+            return ResponseEntity.ok("회원탈퇴 완료되었습니다.");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("회원정보 입력 이상.");
+        }
     }
 }

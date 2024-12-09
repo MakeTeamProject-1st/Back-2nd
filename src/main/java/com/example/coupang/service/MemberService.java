@@ -34,4 +34,17 @@ public class MemberService {
             return null;    // 실패
         }
     }
+
+    public boolean deleteMemberByEmailAndPassword(String email, String password) {
+        Optional<MemberEntity> memberEntity = memberRepository.findByEmail(email);
+
+        if (memberEntity.isPresent()) {
+            MemberEntity entity = memberEntity.get();
+            if (entity.getPassword().equals(password)) {
+                memberRepository.delete(entity);
+                return true;
+            }
+        }
+        return false;   // 정보 다르거나 등등...
+    }
 }
