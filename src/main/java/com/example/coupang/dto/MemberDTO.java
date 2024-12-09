@@ -14,13 +14,13 @@ public class MemberDTO {
     private String address;
     private boolean gender;
 
-    public static MemberDTO toMemberDTO(MemberEntity memberEntity){
+    public static MemberDTO toMemberDTO(MemberEntity memberEntity) {
         MemberDTO memberDTO = new MemberDTO();
         memberDTO.setEmail(memberEntity.getEmail());
         memberDTO.setPhoneNum(memberEntity.getPhoneNum());
         memberDTO.setPassword(memberEntity.getPassword());
         memberDTO.setAddress(memberEntity.getAddress());
-        memberDTO.setGender(memberEntity.isGender());
+        memberDTO.setGender("men".equalsIgnoreCase(memberEntity.getGender()));
         return memberDTO;
     }
 }
