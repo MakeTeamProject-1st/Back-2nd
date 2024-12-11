@@ -8,43 +8,42 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service        // Bean 으로 등록, 의존성
+@Service    // Bean 으로 등록, 의존성
 @RequiredArgsConstructor    // final field 생성자 자동생성 ( LOMBOK )
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    // 회원가입 처리
     public void save(MemberDTO memberDTO) {
         MemberEntity memberEntity = MemberEntity.toMemberEntity(memberDTO);
-        memberRepository.save(memberEntity);    // repository 의 save 를 호출(extends JpaRepository) db에 저장.
+        memberRepository.save(memberEntity); // repository 의 save 를 호출(extends JpaRepository) db에 저장.
     }
 
+    // 로그인 처리
     public MemberDTO login(MemberDTO memberDTO) {
-        Optional<MemberEntity> byEmail = memberRepository.findByEmail(memberDTO.getEmail());    // email 로 회원정보 조회 (Optional 로 감싸진 결과 반환하자.)
+        Optional<MemberEntity> byEmail = memberRepository.findByEmail(memberDTO.getEmail());
 
         if (byEmail.isPresent()) {
             MemberEntity memberEntity = byEmail.get();  // if - true  -> Optional 에서 객체 소환
-
-            if (memberEntity.getPassword().equals(memberDTO.getPassword())) {     // memberEntity - memberDTO equal password
-                return MemberDTO.toMemberDTO(memberEntity);     // MemberDTO 를 memberEntity 로 변환해서 리턴.
-            } else {    // 비밀번호 틀리면
-                return null;    // 실패
+            if (memberEntity.getPassword().equals(memberDTO.getPassword())) {   // memberEntity - memberDTO equal password
+                return MemberDTO.toMemberDTO(memberEntity); // MemberDTO 를 memberEntity 로 변환해서 리턴.
             }
-        } else {    // 이메일 틀리면
-            return null;    // 실패
         }
+        return null; // 로그인 실패
     }
 
+    // 회원탈퇴 처리
     public boolean deleteMemberByEmailAndPassword(String email, String password) {
         Optional<MemberEntity> memberEntity = memberRepository.findByEmail(email);
 
         if (memberEntity.isPresent()) {
             MemberEntity entity = memberEntity.get();
             if (entity.getPassword().equals(password)) {
-                memberRepository.delete(entity);
+                memberRepository.delete(entity); // 회원 삭제
                 return true;
             }
         }
-        return false;   // 정보 다르거나 등등...
+        return false; // 비밀번호 불일치, 이메일 없음 등
     }
 }

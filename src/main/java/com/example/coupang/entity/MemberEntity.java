@@ -1,6 +1,8 @@
 package com.example.coupang.entity;
 
 import com.example.coupang.dto.MemberDTO;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,14 +17,15 @@ import java.sql.Timestamp;
 @Setter
 @Getter
 @Table(name = "users")
+@JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class MemberEntity {
 
     @Id
     @Column(unique = true, nullable = false, length = 100)
-    private String email;       // 아마도 기본키? memberId 추가하면 수정하고.
+    private String email;   // 아마도 기본키? memberId 추가하면 수정하고.
 
     @Column(unique = true, nullable = false, length = 13)
-    private String phoneNum;        // 중복가입방지?
+    private String phoneNum;    // 중복가입방지?
 
     @Column(nullable = false)
     private String password;
@@ -33,24 +36,18 @@ public class MemberEntity {
     @Column(nullable = false, length = 10)
     private String gender;
 
-    //TODO 생성시간 기록 ( 해도 되고 안해도 되고 나중에 보고 )
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;
 
+    // MemberDTO를 MemberEntity로 변환하는 메서드
     public static MemberEntity toMemberEntity(MemberDTO memberDTO) {
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setEmail(memberDTO.getEmail());
         memberEntity.setPhoneNum(memberDTO.getPhoneNum());
         memberEntity.setPassword(memberDTO.getPassword());
         memberEntity.setAddress(memberDTO.getAddress());
-        memberEntity.setGender(memberDTO.isGender() ? "men" : "women");
+        memberEntity.setGender(memberDTO.isGender() ? "men" : "women"); // gender는 문자열로 설정
         return memberEntity;
     }
 }
-
-/*
-ItemApiController: 물품 조회와 관련된 API를 담당하는 컨트롤러.
-UserApiController: 유저 정보와 관련된 API를 담당하는 컨트롤러.
-CartApiController: 장바구니 관련 API를 담당하는 컨트롤러.
-        SellerApiController: 판매 물품 관련 API를 담당하는 컨트롤러.*/
