@@ -15,9 +15,4 @@ public class CartDTO {
         this.itemId = itemId;
         this.cartItemQuantity = cartItemQuantity;
     }
-
-    public CartDTO(int itemId, int cartItemQuantity, String itemName, int itemPrice) {
-        this.itemId = itemId;
-        this.cartItemQuantity = cartItemQuantity;
-    }
 }

@@ -1,7 +1,6 @@
 
 package com.example.coupang.dto;
 
-import com.example.coupang.entity.ItemEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +17,8 @@ public class ItemDTO {
     private String itemExplain; // 물품 설명 (예: 상세 설명)
 
     // 기본 생성자
-    public ItemDTO() {}
+    public ItemDTO() {
+    }
 
     // 파라미터가 있는 생성자
     public ItemDTO(int itemId, String itemName, String itemOption, int itemPrice, int itemStock, String itemImage, String itemExplain) {
@@ -29,18 +29,5 @@ public class ItemDTO {
         this.itemOption = itemOption; // 물품 옵션 (색상, 사이즈 등)
         this.itemImage = itemImage;
         this.itemExplain = itemExplain; // 물품 설명 (상세 정보)
-    }
-
-    // Entity -> DTO 변환 메서드
-    public static ItemDTO toItemDTO(ItemEntity itemEntity) {
-        return new ItemDTO(
-                itemEntity.getItemId(),
-                itemEntity.getItemName(),
-                itemEntity.getItemOption(), // 물품 옵션
-                itemEntity.getItemPrice(),
-                itemEntity.getItemStock(),
-                itemEntity.getItemImage(),
-                itemEntity.getItemExplain() // 물품 설명
-        );
     }
 }

@@ -30,5 +30,5 @@ public class CartItemEntity {
         this.cartItemQuantity = cartItemQuantity;
     }
 
-    public CartItemEntity() {}  // jpa에서 사용,,
+    public CartItemEntity() {}  // jpa 사용,,
 }

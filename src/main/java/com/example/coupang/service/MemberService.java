@@ -33,7 +33,7 @@ public class MemberService {
         return null; // 로그인 실패
     }
 
-    // 회원탈퇴 처리
+    // 회원탈퇴 처리 . 성공과 실패 뿐이니 boolean 진행.
     public boolean deleteMemberByEmailAndPassword(String email, String password) {
         Optional<MemberEntity> memberEntity = memberRepository.findByEmail(email);
 
