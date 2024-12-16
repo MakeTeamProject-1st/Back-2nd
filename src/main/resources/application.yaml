@@ -30,5 +30,6 @@ springdoc:
 # CORS 설정
 app:
   cors:
-    #allowed-origin: "http://localhost:63342"  # 개발 환경에서 허용할 URL
+    #allowed-origin: "http://localhost:63342"  # Swagger UI가 실행되는 출처 허용
+    allow-credentials: false  # 자격 증명(쿠키 등) 없이 요청 허용
     allowed-origin: "https://makeclonecoupangapi.netlify.app" # 배포 환경에서 허용할 URL
