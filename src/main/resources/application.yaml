@@ -27,23 +27,8 @@ springdoc:
     display-request-duration: true
     operations-sorter: method
 
-    openapi: 3.0.0
-    info:
-      title: API Documentation
-      description: This is the API documentation
-      version: 1.0.0
-    paths:
-      /some-api:
-        get:
-          summary: Some API endpoint
-          responses:
-            '200':
-              description: Successful response
-
-
 # CORS 설정
 app:
   cors:
     allowed-origin: "http://localhost:63342"  # 개발 환경에서 허용할 URL
-
     #allowed-origin: "https://makeclonecoupangapi.netlify.app" # 배포 환경에서 허용할 URL
