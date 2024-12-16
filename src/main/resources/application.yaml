@@ -22,7 +22,7 @@ springdoc:
   api-docs:
     path: /v3/api-docs  # API 문서 경로
   swagger-ui:
-    path: /swagger-ui/   # Swagger UI 경로
+    path: /swagger-ui   # Swagger UI 경로
     disable-swagger-default-url: true
     display-request-duration: true
     operations-sorter: method
