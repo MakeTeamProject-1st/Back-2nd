@@ -19,11 +19,27 @@ springdoc:
   packages-to-scan: com.example.coupang # 컨트롤러 가져오기
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
+  api-docs:
+    path: /v3/api-docs  # API 문서 경로
   swagger-ui:
     path: /swagger-ui/   # Swagger UI 경로
     disable-swagger-default-url: true
     display-request-duration: true
     operations-sorter: method
+
+    openapi: 3.0.0
+    info:
+      title: API Documentation
+      description: This is the API documentation
+      version: 1.0.0
+    paths:
+      /some-api:
+        get:
+          summary: Some API endpoint
+          responses:
+            '200':
+              description: Successful response
+
 
 # CORS 설정
 app:
