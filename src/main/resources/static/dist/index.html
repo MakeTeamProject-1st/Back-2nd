@@ -21,10 +21,9 @@
     dom_id: '#swagger-ui',                  // Swagger UI를 표시할 DOM 요소
     deepLinking: true,                      // URL로 Swagger UI 링크 처리
     presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIBundle.SwaggerUIStandalonePreset
-    ],
-    layout: "StandaloneLayout"              // 레이아웃 설정
+      SwaggerUIBundle.presets.apis,         // API 목록 표시
+      SwaggerUIBundle.SwaggerUIStandalonePreset // Standalone UI Preset
+    ]
   });
 </script>
 </body>

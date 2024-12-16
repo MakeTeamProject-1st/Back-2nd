@@ -20,8 +20,14 @@ springdoc:
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
   swagger-ui:
-    path: /api-docs/   # Swagger UI 경로
+    path: /swagger-ui.html   # Swagger UI 경로
     disable-swagger-default-url: true
     display-request-duration: true
     operations-sorter: method
 
+# CORS 설정
+app:
+  cors:
+    allowed-origin: "http://localhost:63342"  # 개발 환경에서 허용할 URL
+
+    #allowed-origin: "https://your-deployed-url.com" # 배포 환경에서 허용할 URL
