@@ -30,5 +30,5 @@ springdoc:
 # CORS 설정
 app:
   cors:
-    allowed-origin: "http://localhost:63342"  # 개발 환경에서 허용할 URL
-    #allowed-origin: "https://makeclonecoupangapi.netlify.app" # 배포 환경에서 허용할 URL
+    #allowed-origin: "http://localhost:63342"  # 개발 환경에서 허용할 URL
+    allowed-origin: "https://makeclonecoupangapi.netlify.app" # 배포 환경에서 허용할 URL
