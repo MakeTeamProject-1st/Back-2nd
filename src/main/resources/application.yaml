@@ -9,10 +9,10 @@ spring:
     password: 1313
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: none
+    show-sql: false
   thymeleaf:
-    cache: false
+    cache: true
 
 ### Swagger ###
 springdoc:
@@ -20,9 +20,9 @@ springdoc:
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
   api-docs:
-    path: /v3/api-docs  # API 문서 경로
+    path: https://port-0-back-2nd-m4twshyf3ec8605b.sel4.cloudtype.app/v3/api-docs  # API 문서 경로
   swagger-ui:
-    path: /swagger-ui   # Swagger UI 경로
+    path: https://port-0-back-2nd-m4twshyf3ec8605b.sel4.cloudtype.app/swagger-ui   # Swagger UI 경로
     disable-swagger-default-url: true
     display-request-duration: true
     operations-sorter: method
@@ -32,4 +32,4 @@ app:
   cors:
     #allowed-origin: "http://localhost:63342"  # Swagger UI가 실행되는 출처 허용
     allow-credentials: false  # 자격 증명(쿠키 등) 없이 요청 허용
-    allowed-origin: "https://makeclonecoupangapi.netlify.app" # 배포 환경에서 허용할 URL
+    allowed-origin: "https://makeclonecoupangapi.netlify.app, http://localhost:8080" # 배포 환경에서 허용할 URL
