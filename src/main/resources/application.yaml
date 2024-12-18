@@ -1,18 +1,24 @@
 server:
   port: 8080
 
+
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/CoupangClone?serverTimezone=Asia/Seoul
-    username: root
-    password: 1313
-  jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: false
-  thymeleaf:
-    cache: true
+  web:
+    resources:
+      static-locations: classpath:/static/
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/CoupangClone?serverTimezone=Asia/Seoul
+#    username: root
+#    password: 1313
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  thymeleaf:
+#    cache: false
 
 ### Swagger ###
 springdoc:
