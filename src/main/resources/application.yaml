@@ -5,7 +5,7 @@ server:
 spring:
   web:
     resources:
-      static-locations: classpath:/static/
+      static-locations: classpath:src/main/resources/static/swagger-ui/index.html
 
 #spring:
 #  datasource:
@@ -26,9 +26,9 @@ springdoc:
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
   api-docs:
-    path: https://port-0-back-2nd-m4twshyf3ec8605b.sel4.cloudtype.app/v3/api-docs  # API 문서 경로
+    path: /v3/api-docs  # API 문서 경로
   swagger-ui:
-    path: https://port-0-back-2nd-m4twshyf3ec8605b.sel4.cloudtype.app/swagger-ui   # Swagger UI 경로
+    path: /swagger-ui   # Swagger UI 경로
     disable-swagger-default-url: true
     display-request-duration: true
     operations-sorter: method
