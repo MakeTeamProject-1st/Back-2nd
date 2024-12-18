@@ -5,7 +5,7 @@ server:
 spring:
   web:
     resources:
-      static-locations: classpath:/static/
+      static-locations: classpath:/static/swagger-ui/
 
 #spring:
 #  datasource:
