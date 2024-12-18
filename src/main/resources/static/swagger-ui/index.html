@@ -1,12 +1,30 @@
-const apiDocsUrl = window.location.hostname === 'localhost'
-? '/v3/api-docs'
-: 'https://makeclonecoupangapi.netlify.app/v3/api-docs';
-const ui = SwaggerUIBundle({
-url: apiDocsUrl, // 환경에 맞는 API 문서 경로
-dom_id: '#swagger-ui',
-deepLinking: true,
-presets: [
-SwaggerUIBundle.presets.apis,
-SwaggerUIBundle.SwaggerUIStandalonePreset
-]
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <!-- Swagger UI CSS -->
+    <link rel="stylesheet" type="text/css" href="/swagger-ui/swagger-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/swagger-ui/index.css"/>
+    <link rel="icon" type="image/png" href="/swagger-ui/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/swagger-ui/favicon-16x16.png" sizes="16x16"/>
+</head>
+
+<body>
+<div id="swagger-ui"></div>
+<script src="/swagger-ui/swagger-ui-bundle.js" charset="UTF-8"></script>
+<script src="/swagger-ui/swagger-ui-standalone-preset.js" charset="UTF-8"></script>
+<script>
+    const ui = SwaggerUIBundle({
+      url: "https://port-0-back-2nd-m4ty3upb1cf4743a.sel4.cloudtype.app/v3/api-docs", // Cloudtype API 문서 경로
+      dom_id: '#swagger-ui',
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.SwaggerUIStandalonePreset
+      ]
+    });
+</script>
+
+</body>
+</html>
